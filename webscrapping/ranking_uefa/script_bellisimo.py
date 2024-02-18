@@ -1,5 +1,4 @@
 import re 
-from colorama import Fore
 import requests
 from bs4 import BeautifulSoup
 
@@ -13,11 +12,6 @@ elementos_blancos = soup.find_all(class_="aleft")
 elementos_verdes = soup.find_all(class_="aleft green")
 elementos_linea = soup.find_all(class_="clubline")
 
-n=0
-for elemento in elementos_linea:
-        n+=1
-        if n==1:
-            print("Elemento", n, ":", elemento)
 
 lista_equipos_azules = []
 lista_equipos_blancos = []
