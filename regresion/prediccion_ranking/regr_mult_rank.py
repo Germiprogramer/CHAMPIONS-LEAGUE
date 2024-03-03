@@ -6,6 +6,8 @@ from sklearn.model_selection import train_test_split
 from sklearn.linear_model import LinearRegression
 import pandas as pd
 
+
+
 df_total = pd.concat([ch14, ch15, ch16, ch17, ch18, ch19, ch20, ch21, ch22, ch23], ignore_index=True)
 
 # Selecciona las variables independientes y la dependiente
@@ -63,25 +65,6 @@ ch24['Rk_transformed'] = prediccion
 ch24 = ch24.sort_values(by='Rk_transformed', ascending=True)
 
 ch24['Rk_transformed'] = ch24['Rk_transformed'].rank(method='first')
-
-
-
-def transform_rank(x):
-    if x == 1:
-        return 1
-    elif x == 2:
-        return 2
-    elif 3 <= x <= 4:
-        return 4
-    elif 5 <= x <= 8:
-        return 8
-    elif 9 <= x <= 16:
-        return 16
-    else:
-        return 32
-    
-
-
 
 ch24['Rk_transformed'] = ch24['Rk_transformed'].apply(transform_rank)
 
