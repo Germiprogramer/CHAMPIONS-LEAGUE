@@ -5,7 +5,7 @@ from sklearn.model_selection import train_test_split
 
 ruta_2019 = r"C:\Users\Germán Llorente\Desktop\germiprogramer\CHAMPIONS-LEAGUE\datos\datos_limpios\champions2019_limp.csv"
 
-class SoccerDataAnalysis:
+class ChampionsDataAnalysis:
     def __init__(self, filepath):
         """
         Inicializa la clase cargando los datos desde un archivo CSV.
@@ -64,10 +64,12 @@ class SoccerDataAnalysis:
 # predictions = analysis.predict_rank(new_data)
 # print(predictions)
     
-ch16 = SoccerDataAnalysis(ruta_2019)
+ch16 = ChampionsDataAnalysis(ruta_2019)
 ch16.preprocess_data()
 ch16.perform_multilinear_regression()
+'''
 #poner los datos de la nueva temporada
-new_data = 
+new_data
 predictions = ch16.predict_rank(new_data)
 print(predictions)
+'''
