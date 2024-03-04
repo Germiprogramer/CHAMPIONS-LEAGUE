@@ -11,8 +11,6 @@ soup = BeautifulSoup(content, 'html.parser')
 
 elementos_linea = soup.find_all("tr", class_="clubline")
 
-
-
 data = []
 for row in elementos_linea:
     cols = row.find_all(['td', 'th'])  # Busca tanto td como th para incluir la columna de suma total

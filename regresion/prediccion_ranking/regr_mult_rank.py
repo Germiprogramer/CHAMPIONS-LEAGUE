@@ -34,7 +34,11 @@ prediccion = regresion_ranking.predecir(nuevos_datos)
 ch24['Rk_transformed'] = prediccion
 
 # Ajustar el ranking utilizando el método ajustar_ranking de la clase
-ch24 = regresion_ranking.ajustar_ranking(ch24, prediccion)
+prediccion = regresion_ranking.ajustar_ranking(ch24, prediccion)
 
 # Mostrar los resultados
-print(ch24[["Squad", "Rk_transformed"]])
+prediccion = prediccion[["Squad", "Rk_transformed"]]
+
+#guardame el dataset prediccion en un csv
+
+prediccion.to_csv(r"C:\Users\Germán Llorente\Desktop\germiprogramer\CHAMPIONS-LEAGUE\datos\predicciones\clasif_ch_regresion.csv", index=False)
