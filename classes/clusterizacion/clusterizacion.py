@@ -8,8 +8,7 @@ import numpy as np
 import matplotlib.pyplot as plt
 import pandas as pd
 from auxiliar.rutas import *
-
-
+from sklearn.impute import SimpleImputer
 
 class Clusterizacion:
     def __init__(self, data, features):
@@ -22,10 +21,13 @@ class Clusterizacion:
 
     def normalizar_datos(self):
         """
-        Normalizar los datos de las características especificadas.
+        Imputar valores faltantes y normalizar los datos.
         """
+        imputer = SimpleImputer(strategy='mean')
+        X_imputed = imputer.fit_transform(self.data[self.features])
+
         scaler = StandardScaler()
-        self.X_scaled = scaler.fit_transform(self.data[self.features])
+        self.X_scaled = scaler.fit_transform(X_imputed)
 
     def metodo_del_codo(self, max_clusters=10):
         """
@@ -89,5 +91,51 @@ data = ch24
 
 features = ['W_av', 'D_av', 'L_av', 'GF_av', 'GA_av', 'GD_av', 'Pts_av', 'xG_av', 'xGA_av', 'xGD_av']
 clasterizador = Clusterizacion(data, features)
-
+clasterizador.normalizar_datos()
 clasterizador.metodo_del_codo(max_clusters=10)
+
+# Aplicar K-Means con 4 clusters
+clasterizador.aplicar_kmeans(n_clusters=4)
+
+# Aplicar Agglomerative Clustering con 4 clusters
+clasterizador.aplicar_agglomerative(n_clusters=4)
+
+# Aplicar DBSCAN con los parámetros por defecto
+clasterizador.aplicar_dbscan(eps=0.5, min_samples=5)
+
+# Aplicar GMM con 4 componentes
+clasterizador.aplicar_gmm(n_components=4)
+
+# Evaluar los clusters generados por K-Means y Agglomerative Clustering utilizando el coeficiente de silueta
+clasterizador.evaluar_clusters('Cluster_KMeans')
+clasterizador.evaluar_clusters('Cluster_Agglomerative')
+
+# Ver las primeras filas del dataframe para observar las asignaciones de cluster
+print(data[['Squad', 'Cluster_KMeans', 'Cluster_Agglomerative', 'Cluster_DBSCAN', 'Cluster_GMM']])
+
+from sklearn.decomposition import PCA
+import seaborn as sns
+
+# Reducir los datos a 2 dimensiones usando PCA
+pca = PCA(n_components=2)
+X_pca = pca.fit_transform(clasterizador.X_scaled)
+
+# Convertir los resultados a un DataFrame para facilitar el plotting
+pca_df = pd.DataFrame(data=X_pca, columns=['PC1', 'PC2'])
+pca_df['Cluster'] = data['Cluster_KMeans']  # Usar las etiquetas de clúster de K-Means
+
+# Graficar los resultados
+plt.figure(figsize=(14, 10))
+
+# Graficar los puntos
+sns.scatterplot(x='PC1', y='PC2', hue='Cluster', data=pca_df, palette='viridis', s=100, alpha=0.7, legend='full')
+
+# Añadir los nombres de los equipos al gráfico
+for i, txt in enumerate(data.Squad):
+    plt.annotate(txt, (X_pca[i, 0], X_pca[i, 1]), textcoords="offset points", xytext=(5,-5), ha='center', fontsize=8)
+
+plt.title('Visualización de Clusters con PCA y Nombres de Equipos')
+plt.xlabel('Componente Principal 1')
+plt.ylabel('Componente Principal 2')
+plt.legend(title='Cluster')
+plt.show()
