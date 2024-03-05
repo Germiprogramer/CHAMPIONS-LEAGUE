@@ -43,4 +43,8 @@ prediccion = prediccion[["Squad", "Rk_transformed"]]
 
 prediccion.to_csv(r"C:\Users\Germán Llorente\Desktop\germiprogramer\CHAMPIONS-LEAGUE\datos\predicciones\clasif_ch_regresion.csv", index=False)
 
+# Mostrar los resultados
+
+regresion_ranking.visualizar_resultados(prediccion)
+
 
