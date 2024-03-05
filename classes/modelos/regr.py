@@ -112,4 +112,5 @@ class RegresionRanking(Regresion):
         the_table.auto_set_font_size(False)
         the_table.set_fontsize(10)
         the_table.scale(1.2, 1.2)
-        plt.show()
+        plt.savefig("resultados/graficos/clasificacion_regresion", bbox_inches='tight')
+        plt.close()  # Cerrar la figura para evitar que se muestre en otro output
