@@ -46,5 +46,3 @@ prediccion.to_csv(r"C:\Users\Germán Llorente\Desktop\germiprogramer\CHAMPIONS-L
 # Mostrar los resultados
 
 regresion_ranking.visualizar_resultados(prediccion)
-
-
