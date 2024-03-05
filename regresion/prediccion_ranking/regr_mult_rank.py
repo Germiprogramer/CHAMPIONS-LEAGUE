@@ -17,7 +17,7 @@ import joblib
 df_total = pd.concat([ch14, ch15, ch16, ch17, ch18, ch19, ch20, ch21, ch22, ch23], ignore_index=True)
 
 # Instanciar la clase RegresionRanking
-regresion_ranking = RegresionRanking('modelos/regresion_ranking.pkl')
+regresion_ranking = RegresionRanking('datos/modelos/regresion_ranking.pkl')
 
 # Entrenar el modelo con los datos cargados
 variables_independientes = ['W_av', 'L_av', 'GF_av', 'GA_av', 'GD_av', 'Pts_av']
@@ -42,3 +42,5 @@ prediccion = prediccion[["Squad", "Rk_transformed"]]
 #guardame el dataset prediccion en un csv
 
 prediccion.to_csv(r"C:\Users\Germán Llorente\Desktop\germiprogramer\CHAMPIONS-LEAGUE\datos\predicciones\clasif_ch_regresion.csv", index=False)
+
+
