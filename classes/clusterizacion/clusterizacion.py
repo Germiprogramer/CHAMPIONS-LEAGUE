@@ -114,4 +114,5 @@ class Clusterizacion:
             plt.xlabel('Componente Principal 1')
             plt.ylabel('Componente Principal 2')
             plt.legend(title='Cluster')
-            plt.show()
+            plt.savefig("resultados/graficos/clusterizacion_equipos", bbox_inches='tight')
+            plt.close()  # Cerrar la figura para evitar que se muestre en otro output
