@@ -12,7 +12,7 @@ y = df_total['Rk_transformed']
 X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
     
 # Instanciar y utilizar la clase RandomForestModel
-model = RandomForestModel()
+model = RandomForestRanking()
 model.fit(X_train, y_train)
 mae = model.evaluate(X_test, y_test)
     
@@ -24,8 +24,12 @@ for col in X_new.columns:
     if X_new[col].dtype == object:
         X_new[col] = X_new[col].str.replace(',', '').astype(float)
 
-ch24['New_Rk_transformed'] = model.predict(X_new)
+ch24['Rk_transformed'] = model.predict(X_new)
     
-prediccion = ch24[['Squad', 'New_Rk_transformed']]
+prediccion = ch24[['Squad', 'Rk_transformed']]
 
-prediccion.to_csv(r"C:\Users\Germán Llorente\Desktop\germiprogramer\CHAMPIONS-LEAGUE\datos\predicciones\clasif_ch_.csv", index=False)
+prediccion.to_csv(r"C:\Users\Germán Llorente\Desktop\germiprogramer\CHAMPIONS-LEAGUE\datos\predicciones\clasif_ch_random_forest.csv", index=False)
+
+# Mostrar los resultados
+
+model.visualizar_resultados(prediccion)
