@@ -1,7 +1,7 @@
 import sys
 sys.path.append(r'C:/Users/Germán Llorente/Desktop/germiprogramer/CHAMPIONS-LEAGUE')
 from auxiliar.rutas import *
-from classes.modelos.random_forest_model import *
+from classes.modelos.random_forest import *
 
 # Suponiendo que tus DataFrames ya están cargados y limpios
 df_total = pd.concat([ch14, ch15, ch16, ch17, ch18, ch19, ch20, ch21, ch22, ch23], ignore_index=True)
