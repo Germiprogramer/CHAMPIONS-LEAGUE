@@ -26,4 +26,6 @@ for col in X_new.columns:
 
 ch24['New_Rk_transformed'] = model.predict(X_new)
     
-print(ch24[['Squad', 'New_Rk_transformed']])
+prediccion = ch24[['Squad', 'New_Rk_transformed']]
+
+prediccion.to_csv(r"C:\Users\Germán Llorente\Desktop\germiprogramer\CHAMPIONS-LEAGUE\datos\predicciones\clasif_ch_.csv", index=False)
