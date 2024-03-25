@@ -12,6 +12,8 @@ ruta_2022 = r"C:\Users\Germán Llorente\Desktop\germiprogramer\CHAMPIONS-LEAGUE\
 ruta_2023 = r"C:\Users\Germán Llorente\Desktop\germiprogramer\CHAMPIONS-LEAGUE\datos\datos_limpios\champions2023_limp.csv"
 ruta_2024 = r"C:\Users\Germán Llorente\Desktop\germiprogramer\CHAMPIONS-LEAGUE\datos\datos_limpios\champions2024_limp.csv"
 ruta_ranking_fifa = r"C:\Users\Germán Llorente\Desktop\germiprogramer\CHAMPIONS-LEAGUE\datos\datos_limpios\ranking_UEFA_limp.csv"
+ruta_real_madrid_liga = r"C:\Users\Germán Llorente\Desktop\germiprogramer\CHAMPIONS-LEAGUE\datos\equipos_seleccionados\real_madrid\real_madrid_liga.csv"
+ruta_manchester_city_liga = r"C:\Users\Germán Llorente\Desktop\germiprogramer\CHAMPIONS-LEAGUE\datos\equipos_seleccionados\manchester_city\manchester_city_liga.csv"
 
 ch14 = pd.read_csv(ruta_2014)
 ch15 = pd.read_csv(ruta_2015)
@@ -25,3 +27,6 @@ ch22 = pd.read_csv(ruta_2022)
 ch23 = pd.read_csv(ruta_2023)
 ch24 = pd.read_csv(ruta_2024)
 ranking_fifa = pd.read_csv(ruta_ranking_fifa)
+
+real_madrid_liga = pd.read_csv(ruta_real_madrid_liga)
+manchester_city_liga = pd.read_csv(ruta_manchester_city_liga)

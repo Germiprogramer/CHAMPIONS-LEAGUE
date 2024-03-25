@@ -6,10 +6,6 @@ from auxiliar.rutas import *
 from sklearn.model_selection import train_test_split
 from sklearn.linear_model import LinearRegression
 import pandas as pd
-import pandas as pd
-from sklearn.model_selection import train_test_split
-from sklearn.linear_model import LinearRegression
-import joblib
 
 # Suponiendo que las clases Regresion y RegresionRanking ya están definidas como se mostró anteriormente
 
