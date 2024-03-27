@@ -87,7 +87,7 @@ class Clusterizacion:
         score = silhouette_score(self.X_scaled, self.data[cluster_column])
         print(f"Coeficiente de silueta para {cluster_column}: {score}")
 
-    def graficar_clusters(self, cluster_column='Cluster_KMeans'):
+    def graficar_clusters(self, cluster_column='Cluster_GMM'):
             """
             Grafica los clusters usando PCA para reducir la dimensionalidad y facilitar la visualización.
             """
@@ -114,5 +114,5 @@ class Clusterizacion:
             plt.xlabel('Componente Principal 1')
             plt.ylabel('Componente Principal 2')
             plt.legend(title='Cluster')
-            plt.savefig("resultados/graficos/clusterizacion_equipos", bbox_inches='tight')
+            plt.savefig("resultados/graficos/GMM_equipos", bbox_inches='tight')
             plt.close()  # Cerrar la figura para evitar que se muestre en otro output

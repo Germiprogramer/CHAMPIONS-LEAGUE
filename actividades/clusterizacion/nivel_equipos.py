@@ -23,6 +23,9 @@ clasterizador.aplicar_gmm(n_components=4)
 # Evaluar los clusters generados por K-Means y Agglomerative Clustering utilizando el coeficiente de silueta
 clasterizador.evaluar_clusters('Cluster_KMeans')
 clasterizador.evaluar_clusters('Cluster_Agglomerative')
+clasterizador.evaluar_clusters('Cluster_GMM')
+
 
 # Mostrar los clusters generados por cada algoritmo
-clasterizador.graficar_clusters('Cluster_KMeans')
+
+clasterizador.graficar_clusters('Cluster_GMM')

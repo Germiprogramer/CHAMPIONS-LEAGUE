@@ -82,7 +82,7 @@ class DecisionTreeRanking(DecisionTree):
         table.set_fontsize(10)
         table.scale(1.2, 1.2)
 
-        plt.savefig("resultados/graficos/clasificacion_decisiontree", bbox_inches='tight')
+        plt.savefig("resultados/graficos/clasificacion_decisiontree_UEFApoints", bbox_inches='tight')
         plt.show()
 
  
