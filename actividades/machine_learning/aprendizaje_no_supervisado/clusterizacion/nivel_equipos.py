@@ -9,7 +9,7 @@ clasterizador.normalizar_datos()
 clasterizador.metodo_del_codo(max_clusters=10)
 
 # Aplicar K-Means con 4 clusters
-clasterizador.aplicar_kmeans(n_clusters=4)
+clasterizador.aplicar_kmeans(n_clusters=3)
 
 # Aplicar Agglomerative Clustering con 4 clusters
 clasterizador.aplicar_agglomerative(n_clusters=4)
@@ -18,7 +18,7 @@ clasterizador.aplicar_agglomerative(n_clusters=4)
 clasterizador.aplicar_dbscan(eps=0.5, min_samples=5)
 
 # Aplicar GMM con 4 componentes
-clasterizador.aplicar_gmm(n_components=4)
+clasterizador.aplicar_gmm(n_components=5)
 
 # Evaluar los clusters generados por K-Means y Agglomerative Clustering utilizando el coeficiente de silueta
 clasterizador.evaluar_clusters('Cluster_KMeans')
